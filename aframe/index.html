@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="../node_modules/aframe/build/aframe.js"></script>
+</head>
+<body>
+<a-scene>
+    <a-assets>
+        <video id="videoSky" style="display:none"
+               autoplay loop crossorigin="anonymous" playsinline webkit-playsinline>
+            <source type="video/mp4"
+                    src="../static/video.mp4" />
+        </video>
+    </a-assets>
+    <a-entity position="0 1 -4" material="color:grey;src: #videoSky" geometry="primitive: box;" depth="4" height="4" width="4">
+        <a-animation attribute="rotation" dur="5000" from="0 0 0" to="360 360 0" repeat="indefinitely" easing="linear"></a-animation>
+    </a-entity>
+</a-scene>
+</body>
+</html>
