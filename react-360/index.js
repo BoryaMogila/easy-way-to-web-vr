@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   AppRegistry,
   View,
@@ -11,7 +11,7 @@ import {
     Easing
 } from 'react-native'
 
-export default class react_360 extends React.Component {
+class React_360 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,4 +69,4 @@ export default class react_360 extends React.Component {
   }
 };
 
-AppRegistry.registerComponent('react_360', () => react_360);
+AppRegistry.registerComponent('react_360', () => React_360);

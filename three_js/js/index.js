@@ -5,32 +5,6 @@ let mesh;
 init();
 animate();
 
-function setupVideo(url) {
-    const video = document.createElement('video');
-    let playing = false;
-    let timeupdate = false;
-    let copyVideo = false;
-    video.autoplay = true;
-    video.loop = true;
-    video.addEventListener('playing', function() {
-        playing = true;
-        checkReady();
-    }, true);
-    video.addEventListener('timeupdate', function() {
-        timeupdate = true;
-        checkReady();
-    }, true);
-    video.src = url;
-    video.play();
-
-    function checkReady() {
-        if (playing && timeupdate) {
-            copyVideo = true;
-        }
-    }
-    return video;
-}
-
 function init() {
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);

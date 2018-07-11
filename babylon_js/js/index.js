@@ -4,15 +4,10 @@ const engine = new BABYLON.Engine(canvas, true);
 const createScene = function () {
     const scene = new BABYLON.Scene(engine);
     const light = new BABYLON.PointLight(
-        "Omni",
-        new BABYLON.Vector3(0, 100, 100),
-        scene
+        "Omni", new BABYLON.Vector3(0, 100, 100), scene
     );
     const camera = new BABYLON.ArcRotateCamera(
-        "Camera",
-        0, 0.8, 100,
-        new BABYLON.Vector3.Zero(),
-        scene
+        "Camera", 0, 0.8, 100, new BABYLON.Vector3.Zero(), scene
     );
     camera.attachControl(canvas, true);
     const box = BABYLON.Mesh.CreateBox("Box1", 20.0, scene);
@@ -20,10 +15,7 @@ const createScene = function () {
     box.rotationx = 150;
     const videoMat = new BABYLON.StandardMaterial("textVid", scene);
     videoMat.diffuseTexture = new BABYLON.VideoTexture(
-        "video",
-        ["../static/video.mp4"],
-        scene,
-        false
+        "video", ["../static/video.mp4"], scene, false
     );
     videoMat.backFaceCulling = false;
     const keys = [];
