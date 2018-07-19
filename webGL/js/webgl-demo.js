@@ -138,7 +138,11 @@ function setupVideo(url) {
 
     video.src = url;
     video.play();
-
+    const runVideo = () => {
+        video.play();
+        document.removeEventListener('click', runVideo)
+    };
+    document.addEventListener('click', runVideo)
     function checkReady() {
         if (playing && timeupdate) {
             copyVideo = true;

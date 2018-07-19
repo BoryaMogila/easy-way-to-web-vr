@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "run": "node --experimental-modules serve_static.mjs",
+    "run-react-360": "cd react-360;npm  start"
+  },
   "dependencies": {
     "aframe": "^0.8.2",
     "aframe-extras": "^4.1.2",
@@ -7,5 +11,20 @@
     "koa-static": "^5.0.0",
     "react-360-cli": "^1.0.0",
     "three.js": "^0.77.1"
-  }
+  },
+  "name": "easy-way-to-web-vr",
+  "version": "1.0.0",
+  "description": "easy-way-to-web-vr",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoryaMogila/easy-way-to-web-vr.git"
+  },
+  "author": "Borya Mohyla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoryaMogila/easy-way-to-web-vr/issues"
+  },
+  "homepage": "https://github.com/BoryaMogila/easy-way-to-web-vr#readme"
 }

@@ -13,6 +13,12 @@ function init() {
     scene.add(light);
     const geometry = new THREE.CubeGeometry(20, 20, 20);
     const video = document.getElementById('videoSky');
+    video.play();
+    const runVideo = () => {
+      video.play();
+      document.removeEventListener('click', runVideo)
+    };
+    document.addEventListener('click', runVideo)
     const videoTexture = new THREE.VideoTexture(video);
     videoTexture.minFilter = THREE.LinearFilter;
     videoTexture.magFilter = THREE.LinearFilter;
