@@ -6,7 +6,8 @@
     <script src="./js/ar.js"> </script>
 </head>
 <body style="margin : 0; overflow: hidden;">
-<a-scene embedded arjs>
+<a-scene embedded
+         arjs="sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180;debugUIEnabled: false;trackingMethod: best;">
     <a-marker type="pattern" url="../static/custom-marker.patt">
         <a-entity animation-mixer gltf-model="../static/BrainStem.glb" scale="0.6 0.6 0.6" position="0 0 0"></a-entity>
     </a-marker>

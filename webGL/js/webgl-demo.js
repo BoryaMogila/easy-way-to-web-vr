@@ -122,6 +122,7 @@ function setupVideo(url) {
 
     video.autoplay = true;
     video.loop = true;
+    video.muted = true;
 
     // Waiting for these 2 events ensures
     // there is data in the video
