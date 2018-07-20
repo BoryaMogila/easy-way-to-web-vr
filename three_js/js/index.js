@@ -8,9 +8,6 @@ animate();
 function init() {
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
-    const light = new THREE.DirectionalLight(0xffffff);
-    light.position.set(0, 1, 1).normalize();
-    scene.add(light);
     const geometry = new THREE.CubeGeometry(20, 20, 20);
     const video = document.getElementById('videoSky');
     video.play();
@@ -20,13 +17,12 @@ function init() {
     };
     document.addEventListener('click', runVideo)
     const videoTexture = new THREE.VideoTexture(video);
-    videoTexture.minFilter = THREE.LinearFilter;
-    videoTexture.magFilter = THREE.LinearFilter;
-    videoTexture.format = THREE.RGBFormat;
     const material = new THREE.MeshPhongMaterial({ map: videoTexture });
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.z = -50;
-    scene.add(mesh);
+    const light = new THREE.DirectionalLight(0xffffff);
+    light.position.set(0, 1, 1).normalize();
+    scene.add(light).add(mesh);
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.getElementById('container').appendChild(renderer.domElement);

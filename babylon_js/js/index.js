@@ -12,12 +12,17 @@ const createScene = function () {
     camera.attachControl(canvas, true);
     const box = BABYLON.Mesh.CreateBox("Box1", 20.0, scene);
     box.position.x = -20;
-    box.rotationx = 150;
+    box.rotation.x = 150;
     const videoMat = new BABYLON.StandardMaterial("textVid", scene);
-    videoMat.diffuseTexture = new BABYLON.VideoTexture(
+    const videoTexture = videoMat.diffuseTexture = new BABYLON.VideoTexture(
         "video", ["../static/video.mp4"], scene, false
     );
-    videoMat.backFaceCulling = false;
+    videoTexture.video.muted= true;
+    scene.onPointerDown = function () {
+      videoTexture.video.play()
+    }
+
+  videoMat.backFaceCulling = false;
     const keys = [];
     keys.push({
         frame: 0,
