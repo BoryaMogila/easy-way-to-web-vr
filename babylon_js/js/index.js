@@ -15,7 +15,7 @@ const createScene = function () {
     box.rotation.x = 150;
     const videoMat = new BABYLON.StandardMaterial("textVid", scene);
     const videoTexture = videoMat.diffuseTexture = new BABYLON.VideoTexture(
-        "video", ["../static/video.mp4"], scene, false
+        "video", ["../static/vinnitsiavr.mp4"], scene, false
     );
     videoTexture.video.muted= true;
     scene.onPointerDown = function () {
