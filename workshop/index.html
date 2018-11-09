@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get coins</title>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.1/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+</head>
+<body>
+<a-scene physics cursor="rayOrigin: mouse">
+    <a-assets>
+        <a-asset id="cesium-man"
+                 src="https://cdn.rawgit.com/KhronosGroup/glTF-Sample-Models/29355d23/2.0/CesiumMan/glTF-Binary/CesiumMan.glb"
+        ></a-asset>
+        <audio
+                id="coin"
+                src="https://cdn.glitch.com/e7dd3067-584d-4fd4-928c-fb532e1a55d1%2Fcoins-to-table-1.mp3?1541708600295"
+        ></audio>
+        <audio
+                id="oink"
+                src="https://cdn.glitch.com/e7dd3067-584d-4fd4-928c-fb532e1a55d1%2Fb9da6fb8-cabc-43cb-b601-fbf2a90bdc29%252Fjump.ogg?1541714476480"
+        ></audio>
+    </a-assets>
+
+    <a-entity environment="preset: forest" ></a-entity>
+
+    <a-entity light="type: directional;color:#EEE" position="1 10 6" rotation="20 0 0"></a-entity>
+
+    <a-plane static-body visible="false" height="1000" width="1000" rotation="-90 0 0"></a-plane>
+
+    <a-sound
+            src="src:url(https://cdn.glitch.com/e7dd3067-584d-4fd4-928c-fb532e1a55d1%2FAnalog-dream-electronic-downtempo-music.mp3?1541441870378)"
+            autoplay="true"
+            loop="true"
+            position="0 2 5"
+            volume="2"
+    ></a-sound>
+
+    <a-entity
+            id="player"
+            camera=""
+            position="0 1.6 0"
+            wasd-controls
+            look-controls
+            sound="src: #oink; autoplay: false; on: jump"
+    >
+
+        <a-entity
+                data-coins="0"
+                id="score"
+                text="value: 0 coins; color: white; width: 0.5; side: double"
+                position="0.24 0.1 -0.5"
+        ></a-entity>
+
+        <a-sound
+                id="coinSound"
+                src="#coin"
+                autoplay="false"
+                loop="false"
+                on="coin"
+                volume="3"
+                sound="poolSize: 3"
+        ></a-sound>
+
+        <a-entity
+                id="walker"
+                scale="1.2 1.2 1.2"
+                static-body="mass: 2000; shape: box"
+                gltf-model="#cesium-man"
+                position="0 -1.6 -1"
+                rotation="0 90 0"
+                animation-mixer
+        >
+        </a-entity>
+
+        <a-animation
+                id="up"
+                begin="false"
+                attribute="position"
+                dur="300"
+                easing="linear"
+        ></a-animation>
+        <a-animation
+                id="down"
+                begin="false"
+                attribute="position"
+                dur="300"
+                easing="linear"
+                delay="300"
+        ></a-animation>
+    </a-entity>
+    <!--<a-entity
+            position="0 1.5 -3"
+            gltf-model="https://cdn.glitch.com/e7dd3067-584d-4fd4-928c-fb532e1a55d1%2Fcoin.glb?1541708089358"
+        ></a-entity>-->
+</a-scene>
+
+<script src="./script.js"></script>
+</body>
+</html>
