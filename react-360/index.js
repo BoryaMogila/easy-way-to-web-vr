@@ -25,7 +25,7 @@ class React_360 extends Component {
               this.state.rotateX,
               {
                   toValue: 360,
-                  duration: 3000,
+                  duration: 2000,
                   easing: Easing.linear
               },
               {
@@ -37,7 +37,7 @@ class React_360 extends Component {
               this.state.rotateY,
               {
                   toValue: 360,
-                  duration: 3000,
+                  duration: 2000,
                   easing: Easing.linear
               }
           )

@@ -17,6 +17,7 @@ function init() {
     };
     document.addEventListener('click', runVideo)
     const videoTexture = new THREE.VideoTexture(video);
+    videoTexture.minFilter = THREE.NearestFilter;
     const material = new THREE.MeshPhongMaterial({ map: videoTexture });
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.z = -50;
