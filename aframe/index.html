@@ -2,9 +2,9 @@
 <!--suppress CheckTagEmptyBody -->
 <html>
 <head>
-    <title>Hello, WebVR! - A-Frame</title>
+    <title>Hello, WebXR! - A-Frame</title>
     <meta name="description" content="Hello, WebVR! - A-Frame">
-    <script src="../node_modules/aframe/build/aframe.js"></script>
+    <script src="../node_modules/aframe/dist/aframe-master.min.js"></script>
 </head>
 <body>
 <a-scene>
@@ -22,15 +22,8 @@
             depth="4"
             height="4"
             width="4"
+            animation="property:rotation;to:360 360 0;dur:5000;easing:linear;loop:true"
     >
-        <a-animation
-                attribute="rotation"
-                dur="5000"
-                from="0 0 0"
-                to="360 360 0"
-                repeat="indefinitely"
-                easing="linear"
-        ></a-animation>
     </a-entity>
 </a-scene>
 <script src="./js/video.js"></script>
